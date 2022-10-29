@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+$buttonRadius: 24px;
+$labelPaddingX: $buttonRadius * 1;
+$labelBorderRadius: 2px;
+$labelFade: 0.1s;
+$colorButton: #ff6000;
+$colorButtonHover: #ff774c;
+$colorText: #333;
+$colorHeadingBackground: #555;
+
+.notes {
+  margin: auto;
+  padding: 2rem 1.2rem 0;
+  max-width: 35rem;
+  font-family: Open Sans, sans serif;
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  padding: 1em;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.lg-container {
+  max-width: 550px;
+  position: relative;
+  margin: 1rem;
+  padding: 0;
+}
+
+.lg-image {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+}
+
+.lg-hotspot {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  cursor: pointer;
+  &:hover,
+  &:active {
+    //  z-index: 999;
+    .lg-hotspot__button {
+      border-color: $colorButtonHover;
+      &:after {
+        background-color: $colorButtonHover;
+      }
+    }
+  }
+  &--selected {
+    z-index: 999;
+    .lg-hotspot__label {
+      opacity: 1;
+    }
+  }
+  &__button {
+    height: $buttonRadius * 2;
+    width: $buttonRadius * 2;
+    padding: 0px;
+    border-radius: 100%;
+    border: 1px solid $colorButton;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    animation: button-pulse 7s ease-in-out infinite;
+    &:after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      content: "";
+      display: block;
+      height: $buttonRadius * 0.7;
+      width: $buttonRadius * 0.7;
+      border-radius: 100%;
+      border: 3px solid white;
+      background-color: $colorButton;
+      transition: border-color 1s linear;
+    }
+  }
+  &__label {
+    position: absolute;
+    padding: 0 0 0 0;
+    width: 35em;
+    max-width: 50vw;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: "Open Sans", sans-serif;
+    font-size: 14.5px;
+    line-height: 1.45em;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: $labelBorderRadius;
+    user-select: none;
+    opacity: 0;
+    transition: all $labelFade linear;
+    h4 {
+      margin: 0;
+      padding: 0.65em $labelPaddingX;
+      background-color: $colorHeadingBackground;
+      font-size: 1.1em;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+      color: white;
+      border-radius: $labelBorderRadius $labelBorderRadius 0 0;
+    }
+    h5 {
+      margin: 0;
+      padding: 0.65em $labelPaddingX;
+      background-color: #868181;
+      font-size: 1.1em;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+      color: white;
+      border-radius: $labelBorderRadius $labelBorderRadius 0 0;
+    }
+    p {
+      margin: 0;
+      padding: 1.1em $labelPaddingX 0 $labelPaddingX;
+      color: $colorText;
+    }
+  }
+}
+
+.lg-hotspot--top-left .lg-hotspot__label {
+  top: $buttonRadius;
+  right: -225px !important;
+  border-radius: 20px;
+}
+
+.lg-hotspot--top-right .lg-hotspot__label {
+  top: $buttonRadius;
+  right: $buttonRadius;
+}
+
+.lg-hotspot--bottom-right .lg-hotspot__label {
+  right: $buttonRadius;
+  bottom: $buttonRadius;
+}
+
+.lg-hotspot--bottom-left .lg-hotspot__label {
+  bottom: $buttonRadius;
+  left: $buttonRadius;
+}
+
+@keyframes button-pulse {
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+  40% {
+    transform: scale(1.15, 1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+
+.marker-alignment{
+    top: 20%; 
+    left: 19.9%;
+}
+
+.flex-alignment{
+  display: flex;
+  height: 260px;
+  left:-240px !important;
+}
+
+.detail-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 75px;
+}
+
+.add-to-cart-button{
+  border-radius: 4px;
+  color: #ffffff;
+  background-color: #70b9c0;
+  border: 1px solid #4A6C6F;
+  width: 85px;
+  height: 20px;
+}
+
+.padding-details{
+  padding: 5px;
+}
